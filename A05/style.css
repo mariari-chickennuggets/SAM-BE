@@ -1,0 +1,72 @@
+body {
+    animation: fadeIn 1s ease-in-out;
+} 
+
+.card {
+    border-radius: 15px; /* Smooth rounded edges */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Soft shadow */
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  
+  .card:hover {
+    transform: scale(1.05); /* Slight zoom effect */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Deeper shadow */
+  }
+  
+  .card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .card-content {
+    padding: 20px;
+    background-color: #fefefe;
+    color: #333;
+    text-align: center;
+  }
+  
+  .card-content h3 {
+    font-size: 1.5em;
+    color: #444;
+  }
+  
+  .card-content p {
+    font-size: 1em;
+    color: #555;
+  }
+  
+  .theme-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1em;
+    font-weight: bold;
+    color: #fff;
+    background: linear-gradient(45deg, #FF6F61, #FFD700); /* Gradient resembling joy and warmth */
+    border: none;
+    border-radius: 25px;
+    text-decoration: none;
+    transition: background 0.3s, transform 0.3s;
+  }
+  
+  .theme-button:hover {
+    background: linear-gradient(45deg, #FF4500, #FFD700); /* Slightly brighter hover effect */
+    transform: translateY(-3px); /* Subtle lift */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow on hover */
+  }
+  
+  .theme-button:active {
+    transform: translateY(0); /* No lift on click */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Less shadow on click */
+  }
+  
+  @keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
