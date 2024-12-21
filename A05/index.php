@@ -1,3 +1,7 @@
+<?php
+include 'connect.php';
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -58,10 +62,6 @@
   <!-- Dynamic Content -->
   <div class="w3-row-padding">
 <?php
-$conn = new mysqli('localhost', 'root', '', 'corememories');
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
 
 $sql = "SELECT islandOfPersonalityID, name, shortDescription, image, color FROM islandsofpersonality";
 $result = $conn->query($sql);

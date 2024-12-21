@@ -1,3 +1,6 @@
+<?php
+include 'connect.php'; 
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -65,10 +68,6 @@
         <?php
         if (isset($_GET['id'])) {
             $id = intval($_GET['id']);
-            $conn = new mysqli('localhost', 'root', '', 'corememories');
-            if ($conn->connect_error) {
-                die("<p style='text-align:center; color:red;'>Connection failed: " . $conn->connect_error . "</p>");
-            }
 
             $islandSql = "SELECT * FROM islandsofpersonality WHERE islandOfPersonalityID = $id";
             $islandResult = $conn->query($islandSql);
