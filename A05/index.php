@@ -13,8 +13,8 @@
 <body>
 <div class="w3-top">
   <div class="w3-bar w3-white w3-wide w3-padding w3-card">
-    <a href="#home" class="w3-bar-item w3-button"><b>Personality</b> Islands</a>
-    <div class="w3-right w3-hide-small">
+  <a href="#home" class="w3-bar-item w3-button" style="font-family: 'YourShirtsInsideOut', sans-serif;"><b>Personality</b> Islands</a>
+  <div class="w3-right w3-hide-small">
       <a href="#projects" class="w3-bar-item w3-button">Islands</a>
       <a href="#about" class="w3-bar-item w3-button">About</a>
       <a href="#contact" class="w3-bar-item w3-button">Contact</a>
@@ -40,7 +40,7 @@
   <!-- Header Content -->
   <div class="w3-display-middle w3-margin-top w3-center" style="z-index: 1; position: relative;">
     <h1 class="w3-xxlarge w3-text-white">
-      <span class="w3-padding w3-Peach w3-opacity-min"><b>Maria's</b></span> 
+      <span class="w3-padding w3-opacity-min"><b>Maria's</b></span> 
       <span class="w3-hide-small w3-text-light-grey">Personality Islands</span>
     </h1>
   </div>
@@ -71,7 +71,7 @@ if ($result->num_rows > 0) {
         $id = $row['islandOfPersonalityID'];
         $name = $row['name'];
         $description = $row['shortDescription'] ?? 'No description available.';
-        $image = $row['image'] ?? 'https://via.placeholder.com/300x200';
+        $image = "img/" . ($row['image'] ?? 'placeholder.png');
         $color = $row['color'] ?? '#f8f9fa';
         ?>
         <div class="w3-col l3 m6 w3-margin-bottom">
@@ -98,9 +98,9 @@ $conn->close();
   <!-- About Section -->
   <div class="w3-container w3-padding-32" id="about">
     <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Thoughts on this</h3>
-    <p>It's very fun to do. I find myself lacking in time to actually sit and assess myself so throughly like I did now. 
-      24 hours a day is indeed long and I better learn how to manage my time better. I had a hard time figuring out what the content of each islandd should be. All I remember from the instructions is the Harry Potter and DOST example. 
-      Then the question "how did it become a part of your personality?". I tried to dod it the  way I comprehended it which is usually wrong but i'll get to that
+    <p>It's very fun to do. I find myself lacking in time to actually sit and assess myself so thoroughly like I did now. 
+      24 hours a day is indeed long and I better learn how to manage my time better. I had a hard time figuring out what the content of each island should be. All I remember from the instructions is the Harry Potter and DOST example. 
+      Then the question "how did it become a part of your personality?". I tried to do it the way I comprehended it which is usually wrong but I'll get to that
       once I got a hold of someone I can ask and learn to phrase my questions better.
     </p>
   </div>

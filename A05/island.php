@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Island of Personality</title>
+    <title>Island Content</title>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <style>
         body {
@@ -12,7 +12,6 @@
             padding: 0;
             color: #333;
             animation: fadeIn 1s ease-in-out;
-
         }
         .container {
             max-width: 1200px;
@@ -52,13 +51,13 @@
         }
 
         @keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
     </style>
 </head>
 <body>
@@ -89,9 +88,9 @@
                         echo "<div class='w3-card'>";
                         echo "<div class='content-img' style='background-color: {$content['color']}'>";
                         if (!empty($content['image'])) {
-                            echo "<img src='{$content['image']}' alt='{$content['content']}'>";
+                            echo "<img src='img/{$content['image']}' alt='{$content['content']}'>";
                         } else {
-                            echo "<img src='placeholder.jpg' alt='No image available'>";
+                            echo "<img src='img/placeholder.jpg' alt='No image available'>";
                         }
                         echo "</div>";
                         echo "<div class='content-text'>";
