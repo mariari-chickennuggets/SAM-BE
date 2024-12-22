@@ -15,13 +15,14 @@
         href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Indie+Flower&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
-
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#home" style="font-family: 'Berkshire Swash', serif; font-weight: 400; font-style: normal;"><b>My Personality Islands</b></a>
+            <a class="navbar-brand" href="#home"
+                style="font-family: 'Poppins', serif; font-weight: 400; font-style: normal;"><b>My Personality
+                    Islands</b></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -31,11 +32,13 @@
                     <li class="nav-item"><a class="nav-link" href="#projects">Islands</a></li>
                     <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    <li class="nav-item">
+                        <button id="modeToggle" class="btn btn-outline-primary">Dark Mode</button>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
-
 
     <header class="w3-display-container w3-content w3-wide" style="max-width:1500px; position: relative; height: 800px;"
         id="home">
@@ -48,7 +51,9 @@
         </div>
         <div class="w3-display-middle w3-margin-top w3-center" style="z-index: 1; position: relative;">
             <h1 class="w3-xxlarge w3-text-white">
-                <span class="w3-padding w3-opacity-min" style="font-family: 'Averia Serif Libre', serif; font-weight: 300; font-style: normal;"><b>Who is</b></span>
+                <span class="w3-padding w3-opacity-min"
+                    style="font-family: 'Averia Serif Libre', serif; font-weight: 300; font-style: normal;"><b>Who
+                        is</b></span>
                 <span class="w3-text-light-grey"
                     style="font-family: 'Berkshire Swash', serif; font-weight: 400; font-style: normal;">Maria?</span>
             </h1>
@@ -56,13 +61,12 @@
     </header>
 
     <div class="w3-content w3-padding" style="max-width:1564px">
-        <!-- Islands Section -->
         <div class="w3-container w3-padding-32" id="projects">
             <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Islands of Personality</h3>
-            <p>Here are some factors as to why I am me today. Of course not limited to those but that will have to wait.</p>
+            <p>Here are some factors as to why I am me today. Of course not limited to those but that will have to wait.
+            </p>
         </div>
 
-        <!-- Dynamic Content -->
         <div class="row g-4">
             <?php
             $sql = "SELECT islandOfPersonalityId, name, shortDescription, image, color FROM islandsOfPersonality";
@@ -95,20 +99,18 @@
             ?>
         </div>
 
-
-        <!-- About Section -->
         <div class="w3-container w3-padding-32" id="about">
             <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Thoughts on this</h3>
             <p>It's very fun to do. I find myself lacking in time to actually sit and assess myself so thoroughly...</p>
         </div>
 
-        <!-- Contact Section -->
         <div class="w3-container w3-padding-32" id="contact">
             <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Contact</h3>
             <form action="/actionPage.php" target="_blank">
                 <input class="w3-input w3-border" type="text" placeholder="Name" required name="name">
                 <input class="w3-input w3-section w3-border" type="text" placeholder="Email" required name="email">
-                <textarea class="w3-input w3-section w3-border" placeholder="Message" required name="message"></textarea>
+                <textarea class="w3-input w3-section w3-border" placeholder="Message" required
+                    name="message"></textarea>
                 <button class="w3-button w3-black w3-section" type="submit">Send Message</button>
             </form>
         </div>
@@ -119,6 +121,19 @@
                 class="text-success">W3.CSS</a></p>
     </footer>
 
+
+    <script>
+    const modeToggle = document.getElementById('modeToggle');
+    const body = document.body;
+
+    let isDarkMode = false;
+
+    modeToggle.addEventListener('click', () => {
+        isDarkMode = !isDarkMode;
+        body.classList.toggle('dark-mode', isDarkMode);
+        modeToggle.textContent = isDarkMode ? 'Light Mode' : 'Dark Mode';
+    });
+    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
 
