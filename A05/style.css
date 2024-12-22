@@ -1,32 +1,28 @@
+/* General Styles */
 body {
   font-family: "Poppins", sans-serif;
   margin: 0;
   padding: 0;
   background-image: linear-gradient(
-    to bottom,
-    #fad693,
-    #fab489,
-    #f0948b,
-    #d77a94,
-    #b0699d,
-    #9b73b0,
-    #7f7dbd,
-    #5e86c2,
-    #61a4d6,
-    #6fc2e6,
-    #8adef3,
-    #adfaff
+      to bottom,
+      #fad693,
+      #fab489,
+      #f0948b,
+      #d77a94,
+      #b0699d,
+      #9b73b0,
+      #7f7dbd,
+      #5e86c2,
+      #61a4d6,
+      #6fc2e6,
+      #8adef3,
+      #adfaff
   );
-  background-attachment: fixed; 
+  background-attachment: fixed;
   animation: fadeIn 1s ease-in-out;
 }
 
-.container {
-  max-width: 1200px;
-  margin: auto;
-  padding: 20px;
-}
-
+/* Typography */
 h1 {
   font-family: "Fredoka One", sans-serif;
 }
@@ -35,14 +31,15 @@ p {
   color: #555;
 }
 
-
+/* Card Styling */
 .card {
   overflow: hidden;
   border-radius: 10px;
   transition: transform 0.3s, box-shadow 0.3s;
-  height: 100%; /* all cards are equal height */
+  height: 100%; /* Equal card height */
   display: flex;
   flex-direction: column;
+  animation: slideIn 0.6s ease-in-out;
 }
 
 .card:hover {
@@ -52,14 +49,15 @@ p {
 
 .card img {
   width: 100%;
-  height: 200px; /* uniform image size */
+  height: 200px; /* Uniform image size */
   object-fit: cover;
   border-bottom: 2px solid #ddd;
+  background-color: #f0f0f0; /* Fallback while loading */
 }
 
 .card-content {
   padding: 15px;
-  flex-grow: 1; /*  content fills space */
+  flex-grow: 1; /* Fills remaining space */
   text-align: center;
 }
 
@@ -75,78 +73,51 @@ p {
   margin: 10px 0;
 }
 
-.card-content .theme-button {
+.theme-button {
   display: inline-block;
-  padding: 10px 20px;
-  margin-top: 10px;
-  font-family: "Poppins", sans-serif;
+  padding: 8px 16px; /* Shorter height and compact padding */
+  margin-top: auto; /* Stays at the bottom of the card */
   font-weight: 600;
+  font-size: 0.9em; /* Slightly smaller font size */
   color: #fff;
-  background-color: #333;
   text-decoration: none;
-  border-radius: 5px;
-  transition: background-color 0.3s;
+  border-radius: 8px; /* Rounded button */
+  background-color: #6cc1ff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.card-content .theme-button:hover {
-  background-color: #555;
+.theme-button:hover {
+  transform: scale(1.1); /* Slightly enlarges on hover */
+  box-shadow: 0 6px 15px rgba(128, 168, 255, 0.8); /* Stronger glow on hover */
 }
 
-.w3-row-padding .w3-col {
-  margin-bottom: 16px;
-}
 
+/* Layout */
 .w3-row-padding {
-  display: flex;
-  flex-wrap: wrap;
   gap: 16px;
   justify-content: center;
 }
 
 .w3-col {
-  flex: 1 1 calc(25% - 16px); /*row with spacing */
-  box-sizing: border-box;
-  max-width: calc(25% - 16px); /* l fits within the grid */
+  flex: 1 1 calc(25% - 16px); /* 4 cards per row */
+  max-width: calc(25% - 16px);
 }
 
 @media screen and (max-width: 992px) {
   .w3-col {
-    flex: 1 1 calc(50% - 16px); /* smaller screens */
-    max-width: calc(50% - 16px);
+      flex: 1 1 calc(50% - 16px); /* 2 cards per row on medium screens */
+      max-width: calc(50% - 16px);
   }
 }
 
 @media screen and (max-width: 600px) {
   .w3-col {
-    flex: 1 1 100%; /*  very small screens */
-    max-width: 100%;
+      flex: 1 1 100%; /* Stacked on small screens */
+      max-width: 100%;
   }
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes slideIn {
-  from {
-    transform: translateY(30px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-.card {
-  animation: slideIn 0.6s ease-in-out;
-}
-
+/* Footer */
 footer {
   background-color: #000;
   color: #fff;
@@ -162,4 +133,14 @@ footer a {
 
 footer a:hover {
   color: #61a4d6;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
 }
