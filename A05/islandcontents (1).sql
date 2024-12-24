@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 21, 2024 at 12:14 PM
+-- Generation Time: Dec 24, 2024 at 08:08 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -60,7 +60,16 @@ INSERT INTO `islandcontents` (`islandContentID`, `islandOfPersonalityID`, `image
 (18, 6, 'b991.jpg', 'Terry - My favorite character of all', NULL),
 (19, 6, 'b992.gif', ' “Cool, cool, cool, cool, cool. No doubt, no doubt, no doubt.”\r\n\r\n', NULL),
 (20, 6, 'b993.gif', '“The English language cannot fully capture the depth and complexity of my thoughts, so I’m incorporating emojis into my speech to better express myself. Winky face.\"', NULL),
-(21, 6, 'b994.jpg', ' “Love, it sustains you. It’s like oatmeal.”', NULL);
+(21, 6, 'b994.jpg', ' “Love, it sustains you. It’s like oatmeal.”', NULL),
+(22, 7, 'meme.gif', '', NULL),
+(23, 8, 'adventure1.gif', 'one minute you\'re enjoying the view and the next second you find yourself alone or surrounded with strangers and the others nowhere to be found', NULL),
+(24, 8, 'adventure2.gif', 'Of course, what is an adventure without a beautiful view? (be it a place or a person or a plant or the sky or the houses, you name it!)', NULL),
+(25, 8, 'adventure3.gif', 'Most importantly, every adventure should be fun (no matter how many times you get lost and get scolded for not paying attention HAHAHHAHAHA)', NULL),
+(26, 8, 'adventure4.gif', 'The most fun are the sponty trips with my cousins \"Hey do you want to come? Don\'t tell my mom\" and we\'re gonna get lost (thanks to google maps) but still get to our destination (thanks to google maps)', NULL),
+(27, 9, 'nocontentyet.gif', 'Under construction', NULL),
+(28, 10, 'nocontentyet.gif', 'Underconstruction', NULL),
+(29, 11, 'nocontentyet.gif', 'Under construction', NULL),
+(30, 12, 'nocontentyet.gif', 'Under construction', NULL);
 
 --
 -- Indexes for dumped tables
@@ -80,7 +89,7 @@ ALTER TABLE `islandcontents`
 -- AUTO_INCREMENT for table `islandcontents`
 --
 ALTER TABLE `islandcontents`
-  MODIFY `islandContentID` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `islandContentID` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
