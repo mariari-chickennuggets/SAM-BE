@@ -2,6 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,76 +13,105 @@
         body {
             font-family: 'Poppins', sans-serif;
             margin: 0;
-            padding: 0; 
+            padding: 0;
             color: #333;
-            background-image: url('img/bg.jpg');
-            background-size: cover;
-            background-position: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('img/bg.jpg') no-repeat center center/cover;
             animation: fadeIn 1s ease-in-out;
         }
 
         .container {
             max-width: 1200px;
             margin: auto;
-            padding: 20px;
+            padding: 20px 20px 50px;
         }
+
         h1 {
             font-family: 'Fredoka One', sans-serif;
             text-align: center;
             font-size: 3em;
             margin-bottom: 20px;
-            color: #FFC300; 
+            color: #FFC300;
             text-shadow: 2px 2px #FF5733;
         }
+
         p {
             text-align: center;
             font-size: 1.2em;
             margin-bottom: 30px;
-            color:rgb(226, 237, 245);
+            color: #e2edf5;
         }
+
         .w3-card {
-            transition: transform 0.3s, box-shadow 0.3s;
-            overflow: hidden;
             border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
+
         .w3-card:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            transform: scale(1.1);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
         }
+
         .content-img img {
             width: 100%;
-            height: auto;
+            height: 100%;
+            object-fit: cover;
             transition: transform 0.3s;
         }
+
         .content-img:hover img {
             transform: scale(1.1);
         }
         .content-text {
-            padding: 20px;
-            background: #fff;
-            border-bottom-left-radius: 10px;
-            border-bottom-right-radius: 10px;
+            padding: 15px;
             text-align: center;
+            color: #fff;
+            font-family: "EB Garamond", serif;
+            font-optical-sizing: auto;
+            font-weight: 400;
+            font-style: normal;
         }
 
-        .content-text p {
-            font-family: 'Poppins', sans-serif;
-            color: #34495E; 
+        .w3-row-padding {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
         }
-        .joy {
-            background-color: #FFEB3B;
+
+        .w3-col {
+            flex: 1 1 calc(33.333% - 40px);
+            max-width: calc(33.333% - 40px);
         }
-        .sadness {
-            background-color: #2196F3;
+
+        @media (max-width: 768px) {
+            .w3-col {
+                flex: 1 1 calc(50% - 40px);
+                max-width: calc(50% - 40px);
+            }
         }
-        .anger {
-            background-color: #F44336;
+
+        @media (max-width: 480px) {
+            .w3-col {
+                flex: 1 1 100%;
+                max-width: 100%;
+            }
         }
-        .fear {
-            background-color: #9C27B0;
+
+        .w3-button {
+            padding: 10px 20px;
+            margin: 40px auto;
+            display: block;
+            max-width: 200px;
+            text-align: center;
+            background-color: #FFC300;
+            color: #333;
+            border-radius: 5px;
+            transition: background 0.3s;
         }
-        .disgust {
-            background-color: #4CAF50;
+
+        .w3-button:hover {
+            background: #FFB300;
         }
 
         @keyframes fadeIn {
@@ -92,23 +122,9 @@
                 opacity: 1;
             }
         }
-
-        @keyframes slideIn {
-            from {
-                transform: translateY(30px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        .w3-card {
-            animation: slideIn 0.6s ease-in-out;
-        }
     </style>
 </head>
+
 <body>
     <div class="container">
         <?php
@@ -128,23 +144,21 @@
 
                 echo "<div class='w3-row-padding'>";
                 if ($contentResult->num_rows > 0) {
+                    $colorToClass = [
+                        'yellow' => 'joy',
+                        'blue' => 'sadness',
+                        'red' => 'anger',
+                        'purple' => 'fear',
+                        'green' => 'disgust'
+                    ];
+
                     while ($content = $contentResult->fetch_assoc()) {
-                        $emotionClass = '';
-                        switch ($content['color']) {
-                            case 'yellow': $emotionClass = 'joy'; break;
-                            case 'blue': $emotionClass = 'sadness'; break;
-                            case 'red': $emotionClass = 'anger'; break;
-                            case 'purple': $emotionClass = 'fear'; break;
-                            case 'green': $emotionClass = 'disgust'; break;
-                        }
-                        echo "<div class='w3-col l4 m6 w3-margin-bottom'>";
+                        $emotionClass = $colorToClass[$content['color']] ?? '';
+                        echo "<div class='w3-col'>";
                         echo "<div class='w3-card $emotionClass'>";
                         echo "<div class='content-img'>";
-                        if (!empty($content['image'])) {
-                            echo "<img src='img/{$content['image']}' alt='{$content['content']}'>";
-                        } else {
-                            echo "<img src='img/placeholder.jpg' alt='No image available'>";
-                        }
+                        $imgSrc = !empty($content['image']) ? "img/{$content['image']}" : "img/placeholder.jpg";
+                        echo "<img src='$imgSrc' alt='{$content['content']}'>";
                         echo "</div>";
                         echo "<div class='content-text'>";
                         echo "<p>{$content['content']}</p>";
@@ -165,6 +179,7 @@
             echo "<p>No island selected.</p>";
         }
         ?>
+        <a href="index.php" class="w3-button">Back to Home</a>
     </div>
 </body>
 </html>
