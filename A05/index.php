@@ -99,7 +99,7 @@
 
         <div class="w3-container w3-padding-32" id="about">
             <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Thoughts on this</h3>
-            <p>It's very fun to do. I find myself lacking in time to actually sit and assess myself so thoroughly...</p>
+            <p>It's very fun to do. I find myself lacking in time to actually sit and assess myself so thoroughly and this activity helped me realize what I am, what I liked, and what makes me, me according to me :3</p>
         </div>
 
         <div class="w3-container w3-padding-32" id="contact">
