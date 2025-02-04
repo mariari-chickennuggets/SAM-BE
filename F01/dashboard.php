@@ -29,6 +29,15 @@
             color: #d4af37;
         }
 
+        .navbar-nav .nav-link {
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #d4af37;
+        }
+
         .dashboard-container {
             margin-top: 20px;
             padding: 20px;
@@ -64,6 +73,9 @@
     <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">OlymFit</a>
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link" href="logout.php">Log Out</a>
+            </div>
         </div>
     </nav>
 
