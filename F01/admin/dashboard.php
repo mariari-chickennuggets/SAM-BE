@@ -28,6 +28,15 @@
             color: #d4af37;
         }
 
+        .nav-link {
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .nav-link:hover {
+            color: #d4af37;
+        }
+
         .dashboard-container {
             margin-top: 20px;
             padding: 20px;
@@ -63,7 +72,8 @@
     <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">OlymFit</a>
-        </div>
+            <a class="nav-link" href="logout.php">Log Out</a>
+            </div>
     </nav>
 
     <div class="container dashboard-container">
@@ -147,6 +157,5 @@
             </div>
         </div>
     </div>
-</body>
-
+    </body>
 </html>
