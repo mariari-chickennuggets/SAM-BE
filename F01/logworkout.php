@@ -1,19 +1,14 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-session_start();
 include 'connect.php';
-?>
+session_start();
 
-<?php
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
+if (!isset($_SESSION['userId'])) {
+    header("Location: login.php"); // Redirect if not logged in
+    exit();
 }
-include 'db.php';
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $userId = $_SESSION['user_id']; 
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $userId = $_SESSION['userId'];
     $activity = $_POST['activity'];
     $date = $_POST['date'];
     $duration = $_POST['duration'];
@@ -24,31 +19,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $location = $_POST['location'];
     $notes = $_POST['notes'];
 
-    try {
-        $sql = "INSERT INTO workouts (userId, activity, date, duration, distance, calories, intensity, heartRate, location, notes)
-                VALUES (:userId, :activity, :date, :duration, :distance, :calories, :intensity, :heartRate, :location, :notes)";
-        $stmt = $conn->prepare($sql);
-        $stmt->execute([
-            ':userId' => $userId,
-            ':activity' => $activity,
-            ':date' => $date,
-            ':duration' => $duration,
-            ':distance' => $distance,
-            ':calories' => $calories,
-            ':intensity' => $intensity,
-            ':heartRate' => $heartRate,
-            ':location' => $location,
-            ':notes' => $notes,
-        ]);
+    $sql = "INSERT INTO workouts (userId, activity, date, duration, distance, calories, intensity, heartRate, location, notes) 
+            VALUES (:userId, :activity, :date, :duration, :distance, :calories, :intensity, :heartRate, :location, :notes)";
+    
+    $stmt = $conn->prepare($sql);
+    $result = $stmt->execute([
+        ':userId' => $userId,
+        ':activity' => $activity,
+        ':date' => $date,
+        ':duration' => $duration,
+        ':distance' => $distance,
+        ':calories' => $calories,
+        ':intensity' => $intensity,
+        ':heartRate' => $heartRate,
+        ':location' => $location,
+        ':notes' => $notes
+    ]);
 
-        header("Location: workoutDashboard.php?success=1");
-        exit;
-    } catch (PDOException $e) {
-        echo "Error: " . $e->getMessage();
+    if ($result) {
+        header("Location: dashboard.php?success=1");
+        exit();
+    } else {
+        echo "Error logging workout.";
     }
 }
-
-header("Location: workoutDashboard.php?success=1");
-exit;
-
 ?>
