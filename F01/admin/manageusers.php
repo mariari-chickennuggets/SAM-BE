@@ -97,8 +97,11 @@ try {
                 </tbody>
             </table>
         </div>
+    </div>
+    <div class="text-center">
         <a href="dashboard.php" class="btn btn-primary mb-4">Back to Dashboard</a>
     </div>
+
 </body>
 
 </html>

@@ -59,8 +59,38 @@ if (isset($_GET['delete'])) {
     <link rel="icon" href="icon.png" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Raleway', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        .navbar {
+            background-color: #0056b3;
+        }
+        .navbar-brand {
+            font-weight: 600;
+            color: #fff;
+        }
+        .navbar-brand:hover {
+            color: #d4af37;
+        }
+        .btn-primary {
+            background-color: #d4af37;
+            border: none;
+        }
+        .btn-primary:hover {
+            background-color: #c2992b;
+        }
+    </style>
 </head>
 <body style="font-family: 'Poppins', sans-serif; background-color: #f8f9fa;">
+<nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="dashboard.php">Olymfit</a>
+        </div>
+    </nav>
     <div class="container mt-5">
         <h1 class="text-center mb-4">Manage Challenges</h1>
 
@@ -130,8 +160,9 @@ if (isset($_GET['delete'])) {
             </tbody>
         </table>
     </div>
-    <a href="dashboard.php" class="btn btn-primary mb-3">Back to Dashboard</a>
-
+    <div class="text-center">
+        <a href="dashboard.php" class="btn btn-primary mb-4">Back to Dashboard</a>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
