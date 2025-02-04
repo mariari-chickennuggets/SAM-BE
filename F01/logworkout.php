@@ -3,7 +3,7 @@ include 'connect.php';
 session_start();
 
 if (!isset($_SESSION['userId'])) {
-    header("Location: login.php"); // Redirect if not logged in
+    header("Location: login.php"); 
     exit();
 }
 

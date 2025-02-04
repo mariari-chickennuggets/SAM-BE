@@ -99,45 +99,9 @@
 
         <div class="row">
             <div class="col-md-6">
-                <div class="card p-4">
-                    <h4 class="card-title mb-3">Log Your Workout</h4>
-                    <form>
-                        <div class="mb-3">
-                            <label for="activity" class="form-label">Activity</label>
-                            <select class="form-select" id="activity" required>
-                                <option value="running">Running</option>
-                                <option value="swimming">Swimming</option>
-                                <option value="cycling">Cycling</option>
-                                <option value="weightlifting">Weightlifting</option>
-                                <option value="yoga">Yoga</option>
-                                <option value="custom">Custom Activity</option>
-                            </select>
-                        <div id="customActivityInput" class="mt-3" style="display: none;">
-                            <label for="customActivity" class="form-label">Custom Activity</label>
-                            <input type="text" id="customActivity" class="form-control">
-                        </div>
-
-                        <script>
-                            document.getElementById('activity').addEventListener('change', function() {
-                                var customActivityInput = document.getElementById('customActivityInput');
-                                if (this.value === 'custom') {
-                                    customActivityInput.style.display = 'block';
-                                } else {
-                                    customActivityInput.style.display = 'none';
-                                }
-                            });
-                        </script>
-                        </div>
-                        <div class="mb-3">
-                            <label for="time" class="form-label">Time (minutes)</label>
-                            <input type="number" id="time" class="form-control" required min="0">
-                        </div>
-                        <div class="mb-3">
-                            <label for="distance" class="form-label">Distance (km)</label>
-                            <input type="number" id="distance" class="form-control">
-                        </div>
-                        <button type="submit" class="btn btn-primary w-100">Log Activity</button>
-                    </form>
+                <div class="card p-4 text-center">
+                    <h4>Log Your Workout</h4>
+                    <a href="workoutDashboard.php" class="btn btn-primary w-100">Go to Workout Dashboard</a>
                 </div>
             </div>
 
